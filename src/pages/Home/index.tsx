@@ -1,6 +1,6 @@
 export const Home: React.FC = () => {
     return (
-        <div className="h-screen">
+        <div className="">
             <p>oi</p>
         </div>
     )
