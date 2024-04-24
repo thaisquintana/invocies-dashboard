@@ -1,5 +1,5 @@
-import Logo from "../../assets/logo-image.webp";
 import { useNavigate } from 'react-router-dom'
+import Logo from "../../assets/logo-image.webp";
 
 export const Login: React.FC = () => {
   const navigate = useNavigate()
@@ -10,7 +10,7 @@ export const Login: React.FC = () => {
         <img
           src={Logo}
           alt="logo-company"
-          className="w-2/12 mx-auto my-8 rounded-full border-4 border-white	"
+          className="w-2/12 mx-auto my-8 rounded-full border-4 border-white"
         />
       </div>
       <div className="bg-white w-6/12 rounded-lg h-3/6 my-0 mx-auto p-8 flex flex-col">
