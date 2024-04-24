@@ -1,6 +1,6 @@
 export const Sidebar: React.FC = () => {
     return (
-        <div className="h-auto p-8 w-full bg-slate-300">
+        <div className="h-auto p-8 w-full bg-slate-100 border border-slate-400">
             <ul>
                 <li>Item A</li>
                 <li>Item B</li>
