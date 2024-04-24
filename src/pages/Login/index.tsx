@@ -15,7 +15,7 @@ export const Login: React.FC = () => {
       </div>
       <div className="bg-white w-6/12 rounded-lg h-3/6 my-0 mx-auto p-8 flex flex-col">
         <h3 className="text-center mb-8 mt-4 font-semibold text-gray-600">
-          Bem-vindo!
+          Bem-vindo(a)!
         </h3>
         <input
           type="email"
