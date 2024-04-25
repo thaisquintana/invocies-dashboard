@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         'midnight': '#6e1c75',
-        'st-patricks-blue': '#211C75'
+        'st-patricks-blue': '#211C75',
+        'taupe-gray': '#86878b'
       }
     },
   },
