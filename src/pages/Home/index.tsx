@@ -2,8 +2,26 @@ import { AlertCircleIcon, ArchiveIcon, CreditCardIcon, FilePenIcon } from "lucid
 import { Card } from "../../components/Card"
 import { Table } from "../../components/Table"
 import { columns, rows } from "../../constants"
+import { useState } from "react"
 
 export const Home: React.FC = () => {
+    const [currentPage, setCurrentPage] = useState(1)
+    // const pageSize = Number(entity?.userCount) >= 60 ? 60 : 10
+    const pageSize = 10 >= 60 ? 60 : 10
+
+    const prevPageList = () => {
+        const prevPage = currentPage - 1
+        setCurrentPage(prevPage)
+      }
+    
+      const nextPageList = () => {
+        const nextPage = currentPage + 1
+        setCurrentPage(nextPage)
+      }
+    //   const userCount = Number(entity?.userCount)
+      const userCount = 1
+      const pageSizeCount = userCount >= 60 ? Math.ceil(userCount / 60) : Math.ceil(userCount / 10)
+  
     return (
         <div className="p-8 h-screen">
             <ul className="grid gap-4 grid-cols-4 mb-20">
@@ -17,7 +35,16 @@ export const Home: React.FC = () => {
                 <h4 className="text-pink-500 font-semibold text-3xl">Assinaturas</h4>
                 <label className="text-taupe-gray text-base">Lista de assinaturas ativas e inativas</label>
             </div>
-            <Table columns={columns} data={rows}/>
+            <Table columns={columns} data={rows}  perPage={pageSize}
+                currentPage={currentPage}
+                totalData={userCount}
+                nextPageList={() => {
+                  nextPageList()
+                }}
+                prevPageList={() => {
+                  prevPageList()
+                }}
+                pageCount={pageSizeCount}/>
         </div>
     )
 }

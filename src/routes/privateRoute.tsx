@@ -4,6 +4,8 @@ import { Footer } from "../components/Footer";
 import { Sidebar } from "../components/Sidebar";
 
 export function PrivateRoute() {
+ 
+
   return (
     <>
       <Header />

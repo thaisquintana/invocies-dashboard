@@ -9,7 +9,8 @@ export default {
       colors: {
         'midnight': '#6e1c75',
         'st-patricks-blue': '#211C75',
-        'taupe-gray': '#86878b'
+        'taupe-gray': '#86878b',
+        "deep-space-sparkle": '#406a76'
       }
     },
   },
