@@ -25,6 +25,7 @@ export type TableProps = {
   totalData: number;
   prevPageList: (currentPage: number) => void;
   nextPageList: (currentPage: number) => void;
+  buttonActions?: (row: number) => React.ReactElement;
 };
 
 export type Rows = {

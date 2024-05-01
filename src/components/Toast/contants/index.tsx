@@ -1,24 +1,29 @@
-import { CircleCheck, Info, TriangleAlert, X } from "lucide-react";
+import { CircleCheck, CircleX, Info, TriangleAlert } from "lucide-react";
+
+export const toastPosition = {
+   "top-left": "top-4 left-4",
+   "top-right": "top-4 right-4",
+   "top-center": "top-4 left-2/4 translate-x-[-50%]",
+   "bottom-left": "bottom-14 left-4",
+   "bottom-right": "bottom-14 right-4",
+   "bottom-center": "top-4 left-2/4 translate-x-[-50%]",
+}
 
 export const toastTypes = {
     success: {
       icon: <CircleCheck color="#22c55e" />,
-      iconClass: "success-icon",
-      bgColor: "bg-green-200"
+      bgColor: "bg-green-200",
     },
     warning: {
       icon: <TriangleAlert color="#f97316" />,
-      iconClass: "warning-icon",
-      bgColor: "bg-yellow-200"
+      bgColor: "bg-yellow-200",
     },
     info: {
       icon: <Info color="#3b82f6" />,
-      iconClass: "info-icon",
-      bgColor: "bg-blue-200"
+      bgColor: "bg-blue-200",
     },
     error: {
-      icon: <X color="#ef4444" />,
-      iconClass: "error-icon",
-      bgColor: "bg-red-200"
+      icon: <CircleX color="#ef4444" />,
+      bgColor: "bg-red-200",
     },
   };

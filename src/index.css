@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hoverIcon {
+    color: #406a76
+}
+
+.hoverIcon:hover {
+    color: #d8168a
+}

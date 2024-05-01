@@ -11,6 +11,7 @@ export const Table: React.FC<TableProps> = ({
   totalData,
   prevPageList,
   nextPageList,
+  buttonActions
 }) => {
   const column = Object.values(columns);
   const rows = Object.values(data);
@@ -24,11 +25,14 @@ export const Table: React.FC<TableProps> = ({
             {column.map((col: Columns, index: number) => (
               <th
                 key={index}
-                className="p-4 border-gray-200 border-b text-taupe-gray"
+                className="p-4 border-gray-200 border-b text-warm-black"
               >
                 {getCaps(col.header ?? "", col.label ?? "")}
               </th>
             ))}
+            <th className="p-4 border-gray-200 border-b text-warm-black">
+              Ações
+            </th>
           </tr>
         </thead>
         <tbody className="w-full">
@@ -37,11 +41,14 @@ export const Table: React.FC<TableProps> = ({
               {column.map((col: Columns, colIndex: number) => (
                 <td
                   key={colIndex}
-                  className="p-4 border-gray-200 border-b text-taupe-gray"
+                  className="p-4 border-gray-200 border-b text-deep-space-sparkle"
                 >
                   <label>{row[col.label as keyof typeof row.name]}</label>
                 </td>
               ))}
+              <td className="p-4 border-gray-200 border-b text-warm-black">
+               {buttonActions?.(row.id)}
+              </td>
             </tr>
           ))}
         </tbody>
