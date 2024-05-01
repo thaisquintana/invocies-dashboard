@@ -11,6 +11,7 @@ export type ToastPosition =
 export type ToastProps = {
   message: string;
   type: ToastType;
-  id: number;
   position: ToastPosition;
+  show?: boolean;
+  handleDismissToast?: () => void;
 };

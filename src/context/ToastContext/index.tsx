@@ -1,31 +1,38 @@
 import { createContext, useState } from "react";
 import { Toast } from "../../components/Toast";
-import { ToastContextProps, showToastProps } from "./types";
-import { ToastType } from "../../components/Toast/types";
+import { ToastContextProps } from "./types";
+import { ToastPosition, ToastProps, ToastType } from "../../components/Toast/types";
 
 export const ToastContext = createContext<ToastContextProps>({
-    toastMessage: () => null
-  })
-
+  toastMessage: () => null,
+});
 
 export const ToastProvider: React.FC<{ children: React.ReactElement }> = ({
-    children,
-  }) => {
+  children,
+}) => {
+  const [toastType, setToastType] = useState<ToastType>("success");
+  const [message, setMessage] = useState<string>("");
+  const [showToast, setShowToast] = useState<boolean>(false);
+  const [positionDefault, setPositionDefault] =
+    useState<ToastPosition>("top-right");
 
-    const [toastType, setToastType] = useState<ToastType>('success')
-    const [message, setMessage] = useState<string>('')
-    const [positionDefault, setPositionDefault] = useState('top-left')
+  const ToastMessage = ({ type, message, position }: ToastProps) => {
+    setToastType(type);
+    setMessage(message);
+    setShowToast(true);
+    setPositionDefault(position)   
+    };
 
-    const ToastMessage = ({ type, message,  }: showToastProps) => {
-       type ? setToastType(type) :  setToastType("success")
-       setMessage(message)
- 
-      }
-
-    return (
-        <ToastContext.Provider value={{toastMessage: ToastMessage}}>
-            <Toast message={message} type={toastType} id={0} position="top-left" />
-            {children}
-        </ToastContext.Provider>
-    )
-}
+  return (
+    <ToastContext.Provider value={{ toastMessage: ToastMessage }}>
+      <Toast
+        message={message}
+        type={toastType}
+        position={positionDefault}
+        show={showToast}
+        handleDismissToast={() => setShowToast(false)}
+      />
+      {children}
+    </ToastContext.Provider>
+  );
+};

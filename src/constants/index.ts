@@ -35,7 +35,7 @@ export const columns = [
     actions: false,
     name: "",
     id: "id",
-  },
+  }
 ];
 
 export const rows = [
@@ -43,28 +43,28 @@ export const rows = [
     id: 2353768,
     name: "Fernanda Cruz",
     email: "fernanda_cruz@gmail.com",
-    plan: "explorer",
-    status: "ativo",
+    plan: "Explorer",
+    status: "Ativo",
   },
   {
     id: 2353769,
     name: "Luísa Coelho",
     email: "lcoelho_90@gmail.com",
-    plan: "planet",
-    status: "ativo",
+    plan: "Planet",
+    status: "Ativo",
   },
   {
     id: 2439791,
     name: "Eduardo Lima",
     email: "pitfall_lima@hotmail.com",
-    plan: "sky",
-    status: "ativo",
+    plan: "Sky",
+    status: "Ativo",
   },
   {
     id: 2439790,
     name: "Heitor de Paiva Souza",
     email: "senhorpaiva@bol.com.br",
-    plan: "sky",
-    status: "inativo",
+    plan: "Sky",
+    status: "Inativo",
   },
 ];
