@@ -29,7 +29,7 @@ export const Login: React.FC = () => {
           placeholder="Password"
           className="h-5 rounded-lg border border-midnight border-1 p-8 my-2"
         />
-        <button className="w-full h-16 rounded-lg hover:bg-st-patricks-blue hover:text-white mt-8 flex items-center justify-center self-end bg-pink-700 text-pink-50 font-semibold" onClick={() => navigate('/home')}>
+        <button className="w-full h-16 rounded-lg hover:bg-st-patricks-blue hover:text-white mt-8 flex items-center justify-center self-end bg-pink-700 text-pink-50 font-semibold" onClick={() => navigate(`${encodeURIComponent('/home')}`)}>
           Entrar
         </button>
       </div>
