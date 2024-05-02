@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { AlertCircleIcon, ArchiveIcon, CreditCardIcon, FilePenIcon, PencilIcon, Trash2Icon } from 'lucide-react'
+import { AlertCircleIcon, ArchiveIcon, CreditCardIcon, FilePenIcon, PencilIcon, Trash2Icon, UserCheck2Icon, UserRoundXIcon } from 'lucide-react'
 
 import { api } from '../../api'
 import { Card } from '../../components/Card'
@@ -19,16 +19,36 @@ export const Home: React.FC = () => {
     setSubscriptions(response.data)
   }
 
+  const handleCancelSubscription = async (id: string) => {
+    api
+    .get(`/subscriptions/${id}`)
+    .then((response) => {
+      api.put(`/subscriptions/${id}`, {
+        ...response.data[0],
+        status: 'Cancelado'
+      })
+      getSubscriptions()
+      toastMessage({
+        message: 'Assinatura cancelada com sucesso.',
+        type: 'success',
+        position: 'bottom-right'
+      })
+    })
+    .catch(() => {
+      toastMessage({
+        message: 'Erro ao cancelar assinatura.',
+        type: 'error',
+        position: 'bottom-right'
+      })
+    })
+  }
+
   const handleDelete = async (id: string) => {
     api
-      .get(`/subscriptions/${id}`)
-      .then((response) => {
-        api.put(`/subscriptions/${id}`, {
-          ...response.data[0],
-          status: 'Cancelado'
-        })
+      .delete(`/subscriptions/${id}`)
+      .then(() => {
         toastMessage({
-          message: 'Assinatura cancelada com sucesso.',
+          message: 'Assinatura excluída com sucesso.',
           type: 'success',
           position: 'bottom-right'
         })
@@ -136,6 +156,9 @@ export const Home: React.FC = () => {
                 <Link to={`/edit-user-subscription/${id}`}>
                   <PencilIcon className="hoverIcon" />
                 </Link>
+              </div>
+              <div className="cursor-pointer" onClick={async () => handleCancelSubscription(String(id))}>
+                <UserRoundXIcon className="hoverIcon" />
               </div>
               <div className="cursor-pointer" onClick={async () => handleDelete(String(id))}>
                 <Trash2Icon className="hoverIcon" />
