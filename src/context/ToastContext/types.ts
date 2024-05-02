@@ -1,6 +1,5 @@
-import { ToastProps } from "../../components/Toast/types";
-
+import { ToastProps } from '../../components/Toast/types'
 
 export type ToastContextProps = {
-    toastMessage: (showToastProps: ToastProps) => void
-};
+  toastMessage: (showToastProps: ToastProps) => void
+}

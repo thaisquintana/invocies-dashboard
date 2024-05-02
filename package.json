@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest --passWithNoTests --maxWorkers=50%",
+    "test:watch": "vitest --watch --maxWorkers=25%"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -41,6 +42,7 @@
     "eslint-plugin-unused-imports": "^3.2.0",
     "jsdom": "^24.0.0",
     "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
     "react-router-dom": "^6.23.0",
     "react-test-renderer": "^18.3.1",
     "tailwindcss": "^3.4.3",

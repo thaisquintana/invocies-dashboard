@@ -1,39 +1,39 @@
 export const columns = [
   {
-    header: "Nome Completo",
-    label: "name",
+    header: 'Nome Completo',
+    label: 'name',
     hasCheckbox: true,
     disableSortBy: false,
     actions: false,
     icon: false,
-    name: "",
-    id: "id",
+    name: '',
+    id: 'id'
   },
   {
-    header: "Email",
-    label: "email",
+    header: 'Email',
+    label: 'email',
     hasCheckbox: false,
     disableSortBy: false,
     actions: false,
-    name: "",
-    id: "id",
+    name: '',
+    id: 'id'
   },
   {
-    header: "Plano",
-    label: "plan",
-    nextClass: "",
+    header: 'Plano',
+    label: 'plan',
+    nextClass: '',
     disableSortBy: false,
     actions: false,
-    name: "",
-    id: "id",
+    name: '',
+    id: 'id'
   },
   {
-    header: "Status",
-    label: "status",
+    header: 'Status',
+    label: 'status',
     hasCheckbox: false,
     disableSortBy: false,
     actions: false,
-    name: "",
-    id: "id",
+    name: '',
+    id: 'id'
   }
-];
+]

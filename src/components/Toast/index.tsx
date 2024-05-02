@@ -1,43 +1,28 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import { ToastProps } from "./types";
-import { toastPosition, toastTypes } from "./contants";
-import { X } from "lucide-react";
+import React, { useMemo } from 'react'
 
-export const Toast: React.FC<ToastProps> = ({
-  message,
-  type,
-  position,
-  show,
-  handleDismissToast,
-}) => {
-  const { icon, bgColor } = toastTypes[type];
+import { X } from 'lucide-react'
+
+import { toastPosition, toastTypes } from './contants'
+import { ToastProps } from './types'
+
+export const Toast: React.FC<ToastProps> = ({ message, type, position, show, handleDismissToast }) => {
+  const { icon, bgColor } = toastTypes[type]
 
   const getKeysBasedOnVariant = (position: string) => {
     if (!position) {
-      return "top-right";
+      return 'top-right'
     }
 
-    //@ts-ignore
-    return toastPosition[position];
-  };
+    return toastPosition[position]
+  }
 
-  const variantToastPosition = useMemo(
-    () => getKeysBasedOnVariant(position),
-    [position]
-  );
+  const variantToastPosition = useMemo(() => getKeysBasedOnVariant(position), [position])
 
   return (
     show && (
       <div
         className={
-          "flex items-center rounded-xl p-8 fixed w-1/5 justify-between overflow-hidden " +
-          type +
-          " " +
-          position +
-          " " +
-          bgColor +
-          " " +
-          variantToastPosition
+          'flex items-center rounded-xl p-8 fixed w-1/5 justify-between overflow-hidden ' + type + ' ' + position + ' ' + bgColor + ' ' + variantToastPosition
         }
       >
         <span>{icon}</span>
@@ -47,5 +32,5 @@ export const Toast: React.FC<ToastProps> = ({
         </button>
       </div>
     )
-  );
-};
+  )
+}
