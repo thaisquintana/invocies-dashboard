@@ -3,7 +3,8 @@ import { Outlet } from 'react-router-dom'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 
-export function PrivateRoute() {
+// eslint-disable-next-line prettier/prettier
+export function PrivateRoute () {
   return (
     <>
       <Header />

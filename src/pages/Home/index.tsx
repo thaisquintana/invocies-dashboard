@@ -34,8 +34,7 @@ export const Home: React.FC = () => {
         })
         getSubscriptions()
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
         toastMessage({
           message: 'Erro ao excluir cadastro.',
           type: 'error',
@@ -64,7 +63,7 @@ export const Home: React.FC = () => {
     if (subscriptions.length === 0) {
       getSubscriptions()
     }
-  }, [])
+  })
 
   const redirectAddNewSubscription = () => {
     navigate('/register-new-user')

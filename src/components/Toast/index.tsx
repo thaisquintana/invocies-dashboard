@@ -13,6 +13,7 @@ export const Toast: React.FC<ToastProps> = ({ message, type, position, show, han
       return 'top-right'
     }
 
+    // @ts-expect-error this will be fix after
     return toastPosition[position]
   }
 

@@ -7,6 +7,7 @@ import { ArrowLeftIcon } from 'lucide-react'
 
 import { api } from '../../api'
 import { useSubscription } from './hooks/useSubscription'
+import { FormSchema } from './types'
 export const UserSubscription: React.FC = () => {
   const { schemaValidation, handleUpdateData, navigate, handleSubmitData } = useSubscription()
 
@@ -46,11 +47,12 @@ export const UserSubscription: React.FC = () => {
         })
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reset])
 
   const titleSection = subscriptionId ? 'Editar assinatura' : 'Nova assinatura'
 
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: FormSchema) => {
     if (subscriptionId) {
       const reactivatePlan = statusPlan ? 'Ativo' : 'Cancelado'
       handleUpdateData(data, subscriptionId, reactivatePlan)

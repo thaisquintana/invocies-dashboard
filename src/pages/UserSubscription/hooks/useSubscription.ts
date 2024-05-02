@@ -31,8 +31,7 @@ export const useSubscription = () => {
         })
         navigate('/home')
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
         toastMessage({
           message: 'Erro ao criar cadastro.',
           type: 'error',
@@ -55,8 +54,7 @@ export const useSubscription = () => {
         })
         navigate('/home')
       })
-      .catch((err) => {
-        console.log(err)
+      .catch(() => {
         toastMessage({
           message: 'Erro ao atualizar assinatura.',
           type: 'error',
