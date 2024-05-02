@@ -21,6 +21,16 @@ Open [http://localhost:5173](http://localhost:5173) with your browser to see the
 The project will run only locally but using a external API [https://newtrips-backend.onrender.com](https://newtrips-backend.onrender.com).
 
 
+## Improvements
+
+- [ ] Build Search component to filter using API;
+- [ ] Improvement Card club new trips component to make dynamic;
+- [ ] Better the accessibility;
+- [ ] Write storybook;
+- [ ] Add husky as pre-commit to validate the style code and patterns;
+- [ ] Build a pipeline om Github Actions;
+
+
 ## Stack
 
 - React(Vitejs)
