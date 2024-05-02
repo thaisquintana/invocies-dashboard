@@ -29,6 +29,8 @@ For now, you can just click on button 'Entrar', and you will be redirect to home
 - [ ] Build Search component to filter using API;
 - [ ] Improvement Card club new trips component to make dynamic;
 - [ ] Improvement Table Logic to populate in real time;
+- [ ] Improvement config for vitest;
+- [ ] Added more unit test to the project;
 - [ ] Better the accessibility;
 - [ ] Write storybook;
 - [ ] Add husky as pre-commit to validate the style code and patterns;
