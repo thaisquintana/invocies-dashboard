@@ -5,12 +5,6 @@ import { Columns, Rows, TableProps } from "./types";
 export const Table: React.FC<TableProps> = ({
   columns,
   data,
-  currentPage,
-  perPage,
-  pageCount,
-  totalData,
-  prevPageList,
-  nextPageList,
   buttonActions
 }) => {
   const column = Object.values(columns);
@@ -54,26 +48,7 @@ export const Table: React.FC<TableProps> = ({
         </tbody>
       </table>
     </div>
-      <div className="flex justify-end items-center mb-24 mx-0 mt-8">
-        <label className="p-4 text-slate-500 font-light">{`${(currentPage - 1) * perPage + 1} - ${
-          pageCount === currentPage ? totalData : currentPage * perPage
-        } de ${isNaN(totalData) ? 0 : totalData}`}</label>
-        <button
-          className="bg-white disabled:opacity-30 disabled:bg-slate-300 border rounded-lg border-slate-400 p-1"
-
-          onClick={() => prevPageList}
-          disabled={currentPage > pageCount || currentPage === 1}
-        >
-          <ChevronLeft color="#406a76" strokeWidth={"0.75px"} />
-        </button>
-        <button
-        className="bg-white disabled:opacity-30 disabled:bg-slate-300 border rounded-lg border-slate-400 p-1 ml-2"
-          onClick={() => nextPageList}
-          disabled={Boolean(pageCount <= currentPage)}
-        >
-          <ChevronRight color="#406a76" strokeWidth={"0.75px"} />
-        </button>
-      </div>
+     
       </>
   );
 };

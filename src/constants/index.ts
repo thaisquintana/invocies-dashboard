@@ -44,7 +44,7 @@ export const rows = [
     name: "Fernanda Cruz",
     email: "fernanda_cruz@gmail.com",
     plan: "Explorer",
-    status: "Ativo",
+    status: "ativo",
   },
   {
     id: 2353769,

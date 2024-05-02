@@ -19,13 +19,7 @@ export type UserData = {
 export type TableProps = {
   data: UserData[];
   columns: Columns[];
-  perPage: number;
-  currentPage: number;
-  pageCount: number;
-  totalData: number;
-  prevPageList: (currentPage: number) => void;
-  nextPageList: (currentPage: number) => void;
-  buttonActions?: (row: number) => React.ReactElement;
+  buttonActions?: (rowId: number ) => React.ReactElement;
 };
 
 export type Rows = {
