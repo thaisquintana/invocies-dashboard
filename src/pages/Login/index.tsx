@@ -17,7 +17,7 @@ export const Login: React.FC = () => {
         <button
           className="w-full h-16 rounded-lg hover:bg-st-patricks-blue hover:text-white mt-8 flex items-center justify-center self-end bg-pink-700 text-pink-50 font-semibold"
           onClick={() => {
-            navigate(`${encodeURIComponent('/home')}`)
+            navigate('/home')
           }}
         >
           Entrar
