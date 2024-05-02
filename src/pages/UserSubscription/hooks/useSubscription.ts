@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useToast } from "../../../hooks/useToast";
-import { useState } from "react";
 import {object, string} from "yup";
 import { api } from "../../../api";
 import { FormSchema } from "../types";
@@ -9,12 +8,6 @@ import { FormSchema } from "../types";
 export const useSubscription = () => {
   const { toastMessage } = useToast();
   const navigate = useNavigate();
-  const [subscriptionData, setSubscriptionData] = useState<FormSchema>()
-
-  const getSubscriptionById = async (id: string) => {
-    const response = await api.get(`/subscriptions/${id}`)
-    return setSubscriptionData(response.data[0])
-  }
 
   const handleSubmitData = (data: FormSchema) => {
     api.post('/subscriptions', {
@@ -85,10 +78,8 @@ export const useSubscription = () => {
   return {
     navigate,
     toastMessage,
-    getSubscriptionById,
     handleSubmitData,
     handleUpdateData,
-    subscriptionData,
     schemaValidation
   };
 };

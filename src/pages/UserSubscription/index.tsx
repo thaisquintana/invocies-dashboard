@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from "lucide-react";
 import { FormSchema } from "./types";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSubscription } from "./hooks/useSubscription";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,9 +8,7 @@ import { api } from "../../api";
 import { useParams } from "react-router-dom";
 export const UserSubscription: React.FC = () => {
   const {
-    subscriptionData,
     schemaValidation,
-    getSubscriptionById,
     handleUpdateData,
     navigate,
     handleSubmitData,
@@ -19,31 +17,51 @@ export const UserSubscription: React.FC = () => {
   const params = useParams();
   const subscriptionId = params.id;
 
+  const [statusPlan, setStatusPlan] = useState('')
   const [isChecked, setIsChecked] = useState(false);
+  const reactivatePlan = statusPlan === 'Cancelado'
 
   const {
     register,
+    reset,
     handleSubmit: onSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: subscriptionData,
+    defaultValues: {
+      name: '',
+      email: '',
+      cpf: '',
+      address: '',
+      cep: '',
+      state: '',
+      city: '',
+      status: '',
+      plan: '',
+
+    },
     resolver: yupResolver(schemaValidation),
   });
 
-  const titleSection = subscriptionData
+  useEffect(() => {
+    if(subscriptionId) {
+      if (subscriptionId) {
+        api.get(`/subscriptions/${subscriptionId}`).then((res) => {
+          reset(res.data[0]);
+          setStatusPlan(res.data[0].status)
+        });
+      }
+    }
+  }, [reset]);
+
+  const titleSection = subscriptionId
     ? "Editar assinatura"
     : "Nova assinatura";
 
-  useEffect(() => {
-    if (subscriptionId) {
-      getSubscriptionById(subscriptionId);
-    }
-  }, []);
 
   const handleSubmit = (data: any) => {
     if (subscriptionId) {
-      const statusPlan = isChecked ? "Ativo" : "Cancelado";
-      handleUpdateData(data, subscriptionId, statusPlan);
+      const reactivatePlan = statusPlan ? "Ativo" : "Cancelado";
+      handleUpdateData(data, subscriptionId, reactivatePlan);
     } else {
       handleSubmitData(data);
     }
@@ -203,19 +221,24 @@ export const UserSubscription: React.FC = () => {
             </select>
           </div>
           <div className="flex justify-end">
-            {subscriptionData ? (
+            {subscriptionId ? (
               <>
-                 <button
-                 type="submit"
-                 className="w-4/12 h-16 rounded-lg hover:bg-pink-400 hover:text-white mt-8 mx-4 bg-pink-700 text-pink-50  font-semibold"
-                 onClick={() => setIsChecked(!isChecked)}
-               >
-                 Reativar assinatura
-               </button>
+              {
+                 reactivatePlan ? (
+                  <button
+                  type="submit"
+                  className="w-4/12 h-16 rounded-lg hover:bg-pink-400 hover:text-white mt-8 mx-4 bg-pink-700 text-pink-50  font-semibold"
+                  onClick={() => setIsChecked(!isChecked)}
+                >
+                  Reativar assinatura
+                </button>
+                ) : <></>
+              }
+               
               <button
                 type="submit"
                 className="w-4/12 h-16  disabled:bg-slate-200 disabled:text-gray-400 rounded-lg hover:bg-pink-400 hover:text-white mt-8 mx-4 bg-pink-700 text-pink-50 font-semibold"
-                disabled={!isChecked}
+                disabled={reactivatePlan}
               >
                 Atualizar assinatura
               </button>

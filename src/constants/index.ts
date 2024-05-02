@@ -37,34 +37,3 @@ export const columns = [
     id: "id",
   }
 ];
-
-export const rows = [
-  {
-    id: 2353768,
-    name: "Fernanda Cruz",
-    email: "fernanda_cruz@gmail.com",
-    plan: "Explorer",
-    status: "ativo",
-  },
-  {
-    id: 2353769,
-    name: "Luísa Coelho",
-    email: "lcoelho_90@gmail.com",
-    plan: "Planet",
-    status: "Ativo",
-  },
-  {
-    id: 2439791,
-    name: "Eduardo Lima",
-    email: "pitfall_lima@hotmail.com",
-    plan: "Sky",
-    status: "Ativo",
-  },
-  {
-    id: 2439790,
-    name: "Heitor de Paiva Souza",
-    email: "senhorpaiva@bol.com.br",
-    plan: "Sky",
-    status: "Inativo",
-  },
-];

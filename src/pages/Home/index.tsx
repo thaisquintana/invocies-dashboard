@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import { Card } from "../../components/Card";
 import { Table } from "../../components/Table";
-import { columns, rows } from "../../constants";
+import { columns } from "../../constants";
 import { useEffect, useState } from "react";
 import { Search } from "../../components/Search";
 import { Link, useNavigate } from "react-router-dom";
@@ -23,8 +23,9 @@ export const Home: React.FC = () => {
 
   const getSubscriptions = async () => {
     const response = await api.get("/subscriptions");
-    setSubscriptions(response.data);
+    return setSubscriptions(response.data);
   };
+
 
   const handleDelete = async (id: string) => {
     api
