@@ -11,19 +11,19 @@ export const toastPosition = {
 
 export const toastTypes = {
   success: {
-    icon: <CircleCheck color="#22c55e" />,
+    icon: <CircleCheck color="#22c55e" data-testid="circle-check" />,
     bgColor: 'bg-green-200'
   },
   warning: {
-    icon: <TriangleAlert color="#f97316" />,
+    icon: <TriangleAlert color="#f97316" data-testid="triangle-alert" />,
     bgColor: 'bg-yellow-200'
   },
   info: {
-    icon: <Info color="#3b82f6" />,
+    icon: <Info color="#3b82f6" data-testid="info" />,
     bgColor: 'bg-blue-200'
   },
   error: {
-    icon: <CircleX color="#ef4444" />,
+    icon: <CircleX color="#ef4444" data-testid="circle-x" />,
     bgColor: 'bg-red-200'
   }
 }

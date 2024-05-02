@@ -29,7 +29,7 @@ export const Toast: React.FC<ToastProps> = ({ message, type, position, show, han
         <span>{icon}</span>
         <p className="text-black text-sm font-medium">{message}</p>
         <button onClick={handleDismissToast}>
-          <X size={18} color="#053b4b" />
+          <X size={18} color="#053b4b" data-testid="x-icon" />
         </button>
       </div>
     )
